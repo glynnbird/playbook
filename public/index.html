@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style type="text/css">
+      textarea {
+        width:90%;
+        height:200px;
+        font-size:16px;
+        font-family:"Liberation Mono", Monaco, "Lucida Console", monospace
+      }
+    </style>
+  </head>
+  <body>
+
+    <form id="codeform">
+      <textarea id="code">
+var a = {a:1,b:2};
+a
+</textarea>
+      <input type="submit" value="go" />
+    </form>
+
+    <textarea id="result">
+    </textarea>
+
+    <script type="text/javascript">
+      
+      var main = function() {
+        $('#codeform').submit(function(e) { 
+          e.preventDefault();
+          $.ajax({
+            url: '/exec',
+            type: 'POST',
+            dataType: 'text',
+            data: JSON.stringify($('#code').val()),
+            contentType: 'application/json',
+            success: function(msg) {
+              $('#result').val(msg);
+            },
+            error: function(xhr) {
+              console.log('error', xhr)
+            }
+          });
+
+        });
+
+
+      };
+
+      $(main);
+
+    </script>
+  </body>
+</html>
