@@ -35,3 +35,13 @@ then
 $telnet localhost 1337
 > 
 ```
+
+
+# display & print
+
+```js
+var db = silverlining('https://MYUSERNAME:MYPASSWORD@myhost.cloudant.com/MYDB');
+db.all().then(print);
+
+db.query({ name:'London'}).then(display);
+```
