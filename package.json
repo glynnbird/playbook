@@ -1,18 +1,16 @@
 {
-  "name": "playbook",
+  "name": "silverlining-playbook",
   "version": "1.0.0",
   "description": "Silverlining playbook",
-  "main": "playbook.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "repl": "node --harmony-async-await repl.js",
-    "playbook": "node --harmony-async-await playbook.js"
+    "repl": "node bin/repl.js",
+    "server": "node bin/server.js"
   },
   "author": "Glynn Bird <glynn.bird@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "body-parser": "^1.16.1",
-    "express": "^4.14.1",
     "silverlining": "^1.21.0"
   }
 }
